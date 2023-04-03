@@ -1,0 +1,34 @@
+<!--update comment-->
+<div class="w-75 col-md-12 mx-auto">
+
+  <h2 id="page-title">Current Comment</h2>
+
+  <p class="single-comment">{{comment.contents}}</p>
+
+  <div id="post-id" value="{{comment.post_id}}" hidden></div>
+
+  <h3 id="page-sub-title">Edit Comment</h3>
+
+  <div class="edit-comment">
+    <p id="comment-label" for="comment">
+      Change here
+    </p>
+    <textarea id="updated_contents" name="contents" rows="4" cols="64">
+    </textarea>
+    <br>
+  </div>
+
+  <div id="comment-btns" class="form-group">
+    <button id="edit-btn" class="edit-comment-btn btn btn-primary" data-id="{{comment.id}}">Edit</button>
+    <button id="delete-btn" class="delete-comment-btn btn btn-primary" data-id="{{comment.id}}">Delete</button>
+  </div>
+
+
+  {{#if loggedIn}}
+
+  <script src="/js/deleteComment.js"></script>
+
+  <script src="/js/editComment.js"></script>
+  {{/if}}
+
+</div>

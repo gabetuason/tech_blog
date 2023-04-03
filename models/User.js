@@ -1,15 +1,15 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
-// a User model class that extends the Sequelize Model class
-class User extends Model { 
+// A User model class that extends the Sequelize Model class
+class User extends Model {
 
-  checkPassword(loginPw) { // create a custom method to check if a given password matches the hashed password stored in the database
-    return bcrypt.compareSync(loginPw, this.password); 
+  checkPassword(loginPw) { // Create a custom method to check if a given password matches the hashed password stored in the database
+    return bcrypt.compareSync(loginPw, this.password);
   }
 }
-// defines the User model attributes and their data types, along with any additional constraints
+// Defines the User model attributes and their data types, along with any additional constraints
 User.init(
   {
     id: {
@@ -21,34 +21,26 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true, // email validate format
-      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],  // password must be length of 8
+        len: [7,], // password must be atleast length of 7
       },
     },
   },
-  { 
-    hooks: { // add hooks to hash the user's password before creating or updating the user data in the database
+  {
+    hooks: { // Add hooks to hash the user's password before creating or updating the user data in the database
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        if (updatedUserData.password) {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        }
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },

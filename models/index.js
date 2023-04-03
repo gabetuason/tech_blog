@@ -1,17 +1,11 @@
-const User = require('./User');
-const Post = require('./Post');
 const Comment = require('./Comment');
+const Post = require('./Post');
+const User = require('./User');
 
 // Users can have many posts
-User.hasMany(Post, { 
+User.hasMany(Post, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE', //  onDelete: it deletes the referencing rows in the child table when the referenced row is deleted in the parent
-});
-
-// Users can add many comments
-User.hasMany(Comment, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
+    onDelete: 'CASCADE'
 });
 
 // Posts belong to a user
@@ -34,5 +28,10 @@ Comment.belongsTo(Post, {
     foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Comment };
+// Users can add many comments
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
 
+module.exports = { Comment, Post, User };

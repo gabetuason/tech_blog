@@ -1,0 +1,22 @@
+
+/*  bold fonting*/
+h1 h2 h3 {
+    font-weight: 600;
+}
+
+p label {
+    font-family: "Open Sans", sans;
+    font-weight: 400;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: blue;
+}
+
+.navbar-nav .nav-item a {
+    font-size: 20px;
+}
+
+.navbar-nav .nav-item.active a {
+    font-size: 24px;
+}

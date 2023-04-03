@@ -1,0 +1,16 @@
+<!--Login Home Blogs-->
+{{#each posts as |post| }}
+
+<div id="home-card" class="card w-50 mb-3 mx-auto">
+
+    <div class="card-body">
+        <h5 id="post-title"><a href="/post/{{post.id}}">{{post.title}}</a></h5>
+        <blockquote class="blockquote mb-2"></blockquote>
+        <p class="blockquote">{{post.contents}}</p>
+        <p class="card-text">Published by User: {{post.user.username}} Date: {{format_date post.date_posted}}</p>
+        </blockquote>
+    </div>
+
+</div>
+
+{{/each}}
