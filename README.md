@@ -43,7 +43,13 @@ Also make a .env file for user details, this is sensitive information.
 
 ## Usage
 
-Deployed Link: 
+Deployed Link: https://peaceful-oasis-34260.herokuapp.com/
+
+! important !
+- In the home page, click dashboard to make posts (Must be logged in)
+- Click on blog posts to add comments (You can change it)
+- Password length atleast 7 characters (Remember it or Write it down)
+- Blogs are ordered by descending order by date
 
 If downloaded/installed. Run the following commands in your terminal:
 1. mysql -u root -p 
