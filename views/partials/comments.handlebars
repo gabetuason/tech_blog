@@ -1,0 +1,23 @@
+<!--Comment partial-->
+<div class="card w-75 mb-3 mx-auto border-0">
+  <br>
+  <br>
+  <h3>Posted comments:</h3>
+  {{#each this}}
+
+  <div class="comments card-body">
+    <section id="comment-section" class="comment">
+      {{log comment.id}}
+      <a href="/edit-comment/{{id}}">{{contents}}</a>
+
+      <div id="comment-metadata" class="meta">
+        {{user.username}} Date: {{format_date date_posted}}
+      </div>
+    </section>
+  </div>
+
+  {{/each}}
+
+</div>
+
+</div>

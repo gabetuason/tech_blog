@@ -1,0 +1,46 @@
+<!--Post-->
+<div id="card" class="card w-75 mb-3 mx-auto border-0">
+    <h5 id="post-title">{{post.title}}</h5>
+    <div id="post-id" value="{{post.id}}" hidden></div>
+    <div class="card-body">
+        <blockquote class="blockquote">
+            <p class="card-text">{{post.contents}}</p>
+            <footer class="blockquote-footer">Published by: {{post.user.username}} {{format_date post.date_posted}}
+            </footer>
+        </blockquote>
+    </div>
+    <div id="edit-delete-post" class="form-group d-grid gap-2 d-md-flex">
+        <a id="edit-post-link" href="/edit/{{post.id}}" class="btn btn-primary">Update</a>
+        <button id="delete-post-btn" class="btn btn-primary" data-id="{{post.id}}"> Delete</button>
+    </div>
+</div>
+
+
+
+{{#if loggedIn}}
+<div class="w-80 col-md-8 mx-auto border-0">
+    <form class="comment-form">
+        <div class="form-group">
+            <label id="comment-label" for="comment">
+                Add a Comment:
+            </label>
+            <br />
+            <textarea id="comment-box" class="textarea" name="comment-body" placeholder="Enter your comment here!"
+                rows="4" cols="64"></textarea>
+        </div>
+        <div id="comment-btn-post" class="form-group">
+            <button id="comment-btn" class="button btn btn-primary" type="submit">Add Comment</button>
+        </div>
+    </form>
+</div>
+
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+
+<script src="/js/deletePost.js"></script>
+
+<script src="/js/addComment.js"></script>
+{{/if}}

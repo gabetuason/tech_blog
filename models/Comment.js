@@ -1,9 +1,10 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Comment extends Model {}
-// make columns for id, contents, date_posted, user_id, post_id
+
 Comment.init( 
+  // make columns for id, contents, date_posted, user_id, post_id
   {
     id: {
       type: DataTypes.INTEGER,

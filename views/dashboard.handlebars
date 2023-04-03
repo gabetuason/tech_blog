@@ -1,0 +1,38 @@
+<!--dashboard-->
+<div class="w-75 col-md-12 mx-auto">
+  <h2 id="page-title">Your Current posts</h2>
+  {{#if posts.length}}
+  {{#each posts as |post|}}
+  <div class="card w-75 mb-3 mx-auto">
+    <div class="card-body">
+      <h5 id="post-title"><a href="/post/{{post.id}}">{{post.title}}</a></h5>
+      <p class="card-text">{{post.contents}}</p>
+    </div>
+  </div>
+  {{/each}}
+  {{else}}
+  <h5 id="page-contents"> None </h5>
+  <br>
+  {{/if}}
+
+  <h2 id="page-title">Make a Post</h2>
+  <form class="form post-form w-75 col-md-12 mx-auto">
+
+
+    <div class="form-group mt-3">
+      <p for="title">Title:</p>
+      <input class="form-input" type="text" id="title" />
+    </div>
+
+    <div class="form-group mt-3">
+      <p for="contents">Description:</p>
+      <textarea class="form-input" id="contents" rows="5" cols="64"></textarea>
+    </div>
+
+    <div class="form-group mt-3">
+      <button id="add-post-btn" class="btn btn-primary" type="submit">Create Post</button>
+    </div>
+
+  </form>
+  <script src="/js/dashboardAddPost.js"></script>
+</div>

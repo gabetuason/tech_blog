@@ -4,8 +4,7 @@ const sequelize = require("../config/connection");
 // Define a new Sequelize model for the 'post' table
 class Post extends Model {}
 
-// Initialize the Post model with its fields and options
-Post.init( 
+Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -19,7 +18,6 @@ Post.init(
     },
     contents: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     date_posted: {
       type: DataTypes.DATE,
